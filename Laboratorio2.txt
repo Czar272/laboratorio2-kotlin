@@ -1,0 +1,80 @@
+//Task 1
+
+private fun calcularPromedio(n: IntArray): Int {
+    val subTotal = n.reduce { acc, num -> acc + num }
+    val promedio = subTotal/n.size
+    return promedio
+   }
+
+//Task 2
+
+fun main(){
+    
+    println("")
+    println("Task 1")    
+    val prom = intArrayOf(500, 400, 300, 200, 100)
+    println(calcularPromedio(prom))
+    
+    
+    println("")
+    println("Task 2")    
+    val lst = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    val lstImp: List<Int> = lst.filter {it % 2 == 1}
+    println("$lstImp")
+    
+    
+    println("")
+    println("Task 3")    
+    val pal1 = "anitalavalatina"
+    val pal2 = "palindromo"
+    println(isPalindrome(pal1))
+    println(isPalindrome(pal2))   
+   
+    
+//Task 4    
+    println("")
+    println("Task 4")
+    val listCad = arrayOf<String>("Pablo", "Cesar", "Diego", "Fabiola", "Ashley")
+    println(listCad.map {"¡Hola, $it!"})
+    
+    
+    println("")
+    println("Task 5")
+    val rst: (Int, Int) -> Int = { a, b -> a - b }
+    val diferencia = performOperation(78, 39, rst)
+    println("$diferencia")
+    
+    
+    println("")
+    println("Task 6")
+    val lstP = listOf(Person("Fabiola", 15, "Femenino"), Person("Pablo", 19, "Masculino"), Person("Ashley", 35, "Femenino"))
+    val lstS = lstP.map { mapeo(it) }    
+    for (student in lstS) {
+        println("El Estudiante ${student.name} tiene ${student.age}.")
+    }
+}
+
+//Task 3
+
+fun isPalindrome(input: String): 
+	Boolean = input == input.reversed()
+    
+//Task 5
+private fun performOperation(ent1: Int, ent2: Int, resta: (Int, Int) -> Int): 
+	Int {return resta(ent1, ent2)}
+    
+//Task 6
+data class Person(val name: String, val age: Int, val gender: String)
+data class Student(val name: String, val age: Int, val gender: String, val studentId: String)
+
+fun mapeo(person: Person): Student {
+    
+    return Student(person.name, person.age, person.gender, "N/A")
+}
+
+
+    
+
+
+
+
